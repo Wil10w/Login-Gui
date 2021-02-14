@@ -9,9 +9,24 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 
 class Ui_Dialog(object):
+    def buttonClicked(self):
+        username = self.lineEdit.text()
+        password = self.lineEdit_2.text()
+
+        if username == 'willow@hotmail.com' and password == 'xxxxxx':
+            print('logged in')
+        else:
+            print('not logged in')
+
+
+
+
+
+
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -45,6 +60,8 @@ class Ui_Dialog(object):
         self.pushButton.setGeometry(QtCore.QRect(170, 220, 75, 23))
         self.pushButton.setStyleSheet("background-color: rgb(167, 168, 167);font-size: 13px")
         self.pushButton.setObjectName("pushButton")
+
+        self.pushButton.clicked.connect(self.buttonClicked)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
